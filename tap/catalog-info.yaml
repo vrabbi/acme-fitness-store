@@ -5,7 +5,7 @@ metadata:
   name: fitness-store
   description: ACME Fitness Online Store
 spec:
-  owner: team-b
+  owner: default-team
   domain: cloud-apps
 ---
 apiVersion: backstage.io/v1alpha1
@@ -59,7 +59,7 @@ spec:
   type: service
   lifecycle: production
   owner: default-team
-  system: fitness-store  
+  system: fitness-store
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
@@ -102,6 +102,21 @@ metadata:
     - tanzu
   annotations:
     'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=acme-shopping'
+spec:
+  type: service
+  lifecycle: production
+  owner: default-team
+  system: fitness-store
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: acme-fitness-gateway
+  description: ACME Fitness API Gateway
+  tags:
+    - tanzu
+  annotations:
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=acme-fitness-gateway'
 spec:
   type: service
   lifecycle: production
